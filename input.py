@@ -1,17 +1,21 @@
-from datetime import date
+import datetime
+def calculate_age():
+    now = datetime.datetime.now()
+    year = int(input("which year were you born? "))
+    if year > 2019:
+        print("Invalid input")
+    elif year < 2019:
+        age = now.year - year
 
-def calculate_age(date_of_birth):
-    today = date.today()
-    return today.year - date_of_birth.year - ((today.month, today.day) < (date_of_birth.month, date_of_birth.day))
+        print("Your age is " + str(age))
+    
+        if age < 18:
+            print("you are a minor")
 
+        elif age < 36:
+            print("you are a youth")
 
-age = calculate_age(date(1990,12,23))
-print(age)
+        elif age >= 36:
+            print("you are an elder")
 
-if age < 18:
-    print("Hey, you are a minor")
-
-elif age < 36:
-    print("Hey, you are a youth")
-elif age >=36:
-    print("Hey, you are an elder")
+calculate_age()
